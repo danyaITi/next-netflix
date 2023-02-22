@@ -2,7 +2,6 @@ import { getProducts, Product } from '@stripe/firestore-stripe-payments'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react'
 import Membership from '../components/Membership'
 import useAuth from '../hooks/useAuth'
 import useSubscription from '../hooks/useSubscription'
@@ -16,7 +15,6 @@ function Account({ products }: Props) {
   console.log(products)
   const { user, logout, loading } = useAuth()
   const subscription = useSubscription(user)
-  const [isBillingLoading, setBillingLoading] = useState(false)
 
   if (loading) return null
 
